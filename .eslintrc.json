@@ -1,3 +1,33 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": ["eslint:recommended", "next/core-web-vitals"],
+  "rules": {
+    "jsx-a11y/alt-text": "off",
+    "camelcase": ["warn"],
+    "consistent-return": ["error"],
+    "dot-notation": ["error"],
+    "eqeqeq": ["error"],
+    "max-depth": ["warn"],
+    "no-console": ["warn"],
+    "no-empty-function": ["warn"],
+    "no-implicit-coercion": ["error"],
+    "no-multi-assign": ["error"],
+    "no-negated-condition": ["error"],
+    "no-nested-ternary": ["error"],
+    "no-param-reassign": ["error"],
+    "no-plusplus": ["error"],
+    "no-shadow": ["warn"],
+    "no-throw-literal": ["error"],
+    "no-unused-vars": "off",
+    "no-var": ["error"],
+    "object-shorthand": ["warn"],
+    "prefer-arrow-callback": ["warn"],
+    "prefer-const": ["warn"],
+    "prefer-destructuring": ["warn"],
+    "prefer-template": ["warn"],
+    "require-await": ["warn"],
+    "require-unicode-regexp": ["warn"],
+    "sort-imports": ["warn"],
+    "sort-keys": ["error"],
+    "yoda": ["warn"]
+  }
 }
