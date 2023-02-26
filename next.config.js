@@ -3,7 +3,7 @@ const nextConfig = {
   experimental: {
     appDir: true,
   },
-  standalone: true,
+  output: 'standalone',
 };
 
 module.exports = nextConfig;
