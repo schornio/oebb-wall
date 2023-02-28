@@ -37,7 +37,7 @@ function parseDate(date: string, time: string) {
     parseInt(year ?? '', 10),
     parseInt(month ?? '', 10) - 1,
     parseInt(day ?? '', 10),
-    parseInt(hour ?? '', 10) + UTC_PLUS_ONE_OFFSET_HOURS,
+    parseInt(hour ?? '', 10) - UTC_PLUS_ONE_OFFSET_HOURS,
     parseInt(minute ?? '', 10)
   );
 }
