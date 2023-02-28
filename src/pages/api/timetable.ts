@@ -27,6 +27,8 @@ type OebbFahrplan = {
 const OEBB_FAHRPLAN_BASE_URL = 'https://fahrplan.oebb.at/bin/stboard.exe/dn';
 const JSONP_CALLBACK = 'journeysObj = ';
 
+const UTC_PLUS_ONE_OFFSET_HOURS = (new Date().getTimezoneOffset() + 60) / 60;
+
 function parseDate(date: string, time: string) {
   const [day, month, year] = date.split('.');
   const [hour, minute] = time.split(':');
@@ -35,7 +37,7 @@ function parseDate(date: string, time: string) {
     parseInt(year ?? '', 10),
     parseInt(month ?? '', 10) - 1,
     parseInt(day ?? '', 10),
-    parseInt(hour ?? '', 10),
+    parseInt(hour ?? '', 10) + UTC_PLUS_ONE_OFFSET_HOURS,
     parseInt(minute ?? '', 10)
   );
 }

@@ -2,6 +2,7 @@ import { OebbDirection } from '@/types/OebbDirection';
 import { OebbDirectionTable } from '@/components/OebbDirectionTable';
 import { OebbTimetable } from '@/types/OebbTimetable';
 import { Refresh } from '@/components/Refresh';
+import { notFound } from 'next/navigation';
 
 type PageProps = {
   params: {
@@ -14,6 +15,11 @@ export default async function Page({ params: { evaID } }: PageProps) {
     `http://localhost:3000/api/timetable?evaID=${evaID}`,
     { cache: 'no-cache' }
   );
+
+  if (!res.ok) {
+    notFound();
+  }
+
   const timetable = (await res.json()) as OebbTimetable;
 
   const directions = new Map<string, OebbDirection>();
@@ -66,6 +72,7 @@ export default async function Page({ params: { evaID } }: PageProps) {
     <>
       <Refresh minutes={1} />
       <OebbDirectionTable directions={directionTable} />
+      <pre>{JSON.stringify(timetable, null, 2)}</pre>
     </>
   );
 }

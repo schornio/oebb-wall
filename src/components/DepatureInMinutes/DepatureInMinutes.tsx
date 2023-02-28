@@ -10,10 +10,11 @@ export function DepatureInMinutes({
   const depatureDate = departure?.dateISO ? new Date(departure.dateISO) : null;
 
   useEffect(() => {
-    if (departure?.dateISO)
+    if (!departure?.dateISO) {
       return () => {
         /* noop */
       };
+    }
 
     const interval = setInterval(() => {
       setNow(new Date());
